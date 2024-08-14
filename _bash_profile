@@ -1,0 +1,70 @@
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#if [ -f '/c/Users/alive/scoop/apps/miniconda3/current/Scripts/conda.exe' ]; then
+#    eval "$('/c/Users/alive/scoop/apps/miniconda3/current/Scripts/conda.exe' 'shell.bash' 'hook')"
+#fi
+# <<< conda initialize <<<
+# My version that works instead of above
+. $HOME/scoop/apps/miniconda3/current/etc/profile.d/conda.sh
+
+# https://albertotb.com/Git-prompt-with-conda-and-conda-auto-env/
+GREEN="\[\033[38;5;155m\]"
+DARK_GREEN="\[\033[00;32m\]"
+GRAY="\[\033[38;5;8m\]"
+ORANGE="\[\033[38;5;220m\]"
+BLUE="\[\033[38;5;117m\]"
+WHITE="\[\033[38;5;15m\]"
+YELLOW="\[\033[01;33m\]"
+LIGHT_GRAY="\[\033[0;37m\]"
+CYAN="\[\033[0;36m\]"
+RED="\[\033[0;31m\]"
+VIOLET="\[\033[01;35m\]"
+MAGENTA="\[\033[0;35m\]".
+RESET="\[$(tput sgr0)\]"
+
+function git_and_conda_prompt {
+  local __git_branch_color="$DARK_GREEN"
+  local __git_branch=$(__git_ps1 ' [%s]');
+
+  # colour branch name depending on state
+
+  if [[ "${__git_branch}" =~ "*" ]]; then     # if repository is dirty
+      __git_branch_color="$RED"
+  elif [[ "${__git_branch}" =~ "$" ]]; then   # if there is something stashed
+      __git_branch_color="$YELLOW"
+  elif [[ "${__git_branch}" =~ "%" ]]; then   # if there are only untracked files
+      __git_branch_color="$LIGHT_GRAY"
+  elif [[ "${__git_branch}" =~ "+" ]]; then   # if there are staged files
+      __git_branch_color="$CYAN"
+  fi
+
+PS1="${CONDA_PROMPT_MODIFIER}${GREEN}\u${RESET}${GRAY}@${RESET}${ORANGE}\h${RESET}${GRAY}:${RESET}${BLUE}\w${RESET}$__git_branch_color$__git_branch${GRAY}\$${RESET}${WHITE}${RESET} "
+}
+
+export PROMPT_COMMAND="conda_auto_env;git_and_conda_prompt"
+
+if [ -f ~/scoop/conda_auto_env.sh ]; then
+  source ~/scoop/conda_auto_env.sh
+fi
+
+# if .git-prompt.sh exists, set options and execute it
+if [ -f ~/scoop/git-prompt.sh ]; then
+  GIT_PS1_SHOWDIRTYSTATE=true
+  GIT_PS1_SHOWSTASHSTATE=true
+  GIT_PS1_SHOWUNTRACKEDFILES=true
+  GIT_PS1_SHOWUPSTREAM="auto"
+  GIT_PS1_HIDE_IF_PWD_IGNORED=true
+  GIT_PS1_SHOWCOLORHINTS=true
+  source ~/scoop/git-prompt.sh
+fi
+
+alias h='history'
+alias j='jobs -l'
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+alias cls='clear'
+alias cd..='cd ..'
+alias vi=$HOME/scoop/apps/vim/current/vim
+
+conda activate min_env
