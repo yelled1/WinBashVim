@@ -65,6 +65,12 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias cls='clear'
 alias cd..='cd ..'
+alias more="less -de"
+alias python='ipython'
 alias vi=$HOME/scoop/apps/vim/current/vim
+
+
+# https://gist.github.com/carlosame/5c4070c3941707c0f2c2a5bf1b175cc4
+# additional commands on Git Bash
 
 conda activate min_env

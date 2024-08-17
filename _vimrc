@@ -43,17 +43,15 @@ else
 endif
 
 " ___ 
-if has("win64")
-  "let g:python3_host_prog = $CONDA_PYTHON_EXE
-	let g:repl_program = { 
-		\ 'python': ['ipython'],
-		\ 'default': ['bash'],
-		\ 'lua': ['lua'],
-		\ 'vim': ['vim -e']
-		\ }
-            "\ 'scala': [ $HOME . '/bin/mill_repl.sh'],
-            "\ 'scala': ['sbt console'],
-endif
+""let g:python3_host_prog = $CONDA_PYTHON_EXE " DOES NOT really do much
+let g:repl_program = { 
+    \ 'python': ['ipython'],
+    \ 'default': ['bash'],
+    \ 'lua': ['lua'],
+    \ 'vim': ['vim -e']
+    \ }
+   "\ 'scala': [ $HOME . '/bin/mill_repl.sh'],
+   "\ 'scala': ['sbt console'],
 
 let g:repl_exit_commands = {
 	\ 'python': 'quit()', 
