@@ -8,6 +8,7 @@
 
 let mapleader = ","
 let maplocalleader = "\\"
+set backspace=indent,eol,start  " more powerful backspacing
 
 call plug#begin() "'C:\Bin\vimfiles\vim_plugged\autoload')
 Plug 'sillybun/vim-repl'
@@ -21,11 +22,14 @@ Plug 'itchyny/lightline.vim'                          " status tabline bottom
 Plug 'joshdick/onedark.vim'                           " Color Theme 
 Plug 'morhetz/gruvbox'                                " Classic Color Theme 
 
+"Plug 'joshdick/onedark.vim.git
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 "Plug 'sheerun/vim-polyglot'                           " py syntax highlight
 "Plug 'liuchengxu/vista.vim'                           " Show cTags
 "Plug 'ctrlpvim/ctrlp.vim'                             " fuzzy find files
-"Plug 'prettier/vim-prettier', {'do': 'yarn install'} " Not working in vim? or yarn issue
-"Plug 'christoomey/vim-tmux-navigator'                " interphere w/ NERDTreeToggle <c-\>
+"Plug 'prettier/vim-prettier', {'do': 'yarn install'}  " Not working in vim? or yarn issue
+"Plug 'christoomey/vim-tmux-navigator'                 " interphere w/ NERDTreeToggle <c-\>
 "Plug 'tsony-tsonev/nerdtree-git-plugin'
 "Plug 'airblade/vim-gitgutter'
 call plug#end()
@@ -36,11 +40,10 @@ filetype plugin on
 " " This script contains plugin specific settings
 if has("win64")
     source $HOME/vimfiles/coc-config.vim
-    colorscheme gruvbox " this came with init.vim
 else
     source $HOME/.vim/coc-config.vim
-    colorscheme onedark
 endif
+
 
 " ___ 
 ""let g:python3_host_prog = $CONDA_PYTHON_EXE " DOES NOT really do much
@@ -69,6 +72,7 @@ let g:repl_predefine_python = {
 
 "___ keyMaps for Sillybun vim-repl ____________________________________
 "
+
 nnoremap <leader>r :REPLToggle<Cr>
 " ipdb to debug python script
 nnoremap <localleader>\ :REPLToggle<Cr>
@@ -97,9 +101,9 @@ tnoremap <ScrollWheelUp> <C-w>Nk
 tnoremap <ScrollWheelDown> <C-w>Nj
 
 
-
 "___ For NERDTree _______________________________________________
 "
+
 "ignore files in nerdtree
 let nerdtreeignore=['\.pyc$', '\~$','^node_modules$']
 map <C-\> :NERDTreeToggle<CR>
@@ -157,3 +161,7 @@ au BufNewFile,BufRead *.js,*.html,*.css,*.scala,*.sc,*.jl
 syntax on
 set laststatus=2
 set statusline=[%n]\ %<%f%h%m
+
+"let g:airline_theme='onedark'
+"colorscheme gruvbox " this came with init.vim
+colorscheme onedark
