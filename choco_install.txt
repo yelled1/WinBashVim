@@ -1,0 +1,26 @@
+choco install choco-cleaner NTop.Portable pwsh 
+choco install vim vscode nvm.portable
+choco install miniconda3 OpenJDK 7zip
+
+-- choco search sqlserver-odbcdriver-18
+-- choco search ssdt17
+-- choco install sql-server-management-studio sqlserver-cmdlineutils
+
+https://blog.logrocket.com/install-node-windows-chocolatey/
+nvm install lts
+nvm use lts -(as admin)
+
+iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+    ni $HOME/vimfiles/autoload/plug.vim -Force
+
+
+https://phoenixnap.com/kb/install-spark-on-windows-10
+    setx SPARK_HOME "C:\Spark\spark-4.0.0-bin-hadoop3"
+    setx HADOOP_HOME "C:\hadoop"
+    - Update the User env PATH to add above
+
+SentinelOne pwsh 7.5 crash
+	https://github.com/PowerShell/PowerShell/issues/24878
+	https://github.com/PowerShell/PowerShell/issues/24435
+
+https://medium.com/@devstefancho/display-git-branch-in-your-powershell-81b8b22ae3a7

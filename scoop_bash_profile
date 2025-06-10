@@ -5,9 +5,7 @@
 #fi
 # <<< conda initialize <<<
 # My version that works instead of above
-
-# . $HOME/scoop/apps/miniconda3/current/etc/profile.d/conda.sh
-. /c/tools/miniconda3/etc/profile.d/conda.sh
+. $HOME/scoop/apps/miniconda3/current/etc/profile.d/conda.sh
 
 # https://albertotb.com/Git-prompt-with-conda-and-conda-auto-env/
 GREEN="\[\033[38;5;155m\]"
@@ -45,19 +43,19 @@ PS1="${CONDA_PROMPT_MODIFIER}${GREEN}\u${RESET}${GRAY}@${RESET}${ORANGE}\h${RESE
 
 export PROMPT_COMMAND="conda_auto_env;git_and_conda_prompt"
 
-if [ -f /c/tools/conda_auto_env.sh ]; then
-  source /c/tools/conda_auto_env.sh
+if [ -f ~/scoop/conda_auto_env.sh ]; then
+  source ~/scoop/conda_auto_env.sh
 fi
 
 # if .git-prompt.sh exists, set options and execute it
-if [ -f /c/tools/git-prompt.sh ]; then
+if [ -f ~/scoop/git-prompt.sh ]; then
   GIT_PS1_SHOWDIRTYSTATE=true
   GIT_PS1_SHOWSTASHSTATE=true
   GIT_PS1_SHOWUNTRACKEDFILES=true
   GIT_PS1_SHOWUPSTREAM="auto"
   GIT_PS1_HIDE_IF_PWD_IGNORED=true
   GIT_PS1_SHOWCOLORHINTS=true
-  source /c/tools/git-prompt.sh
+  source ~/scoop/git-prompt.sh
 fi
 
 alias h='history'
@@ -69,7 +67,8 @@ alias cls='clear'
 alias cd..='cd ..'
 alias more="less -de"
 alias python='ipython'
-alias vi=/c/tools/vim/vim91/vim.exe
+alias vi=$HOME/scoop/apps/vim/current/vim
+
 
 # https://gist.github.com/carlosame/5c4070c3941707c0f2c2a5bf1b175cc4
 # additional commands on Git Bash
