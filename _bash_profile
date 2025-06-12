@@ -84,3 +84,4 @@ alias vi='/c/tools/vim/vim91/vim.exe'
 # additional commands on Git Bash
 
 conda activate spark12
+# git config --global core.editor
