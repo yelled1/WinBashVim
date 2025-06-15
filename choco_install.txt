@@ -1,6 +1,8 @@
-choco install choco-cleaner NTop.Portable pwsh 
+choco install choco-cleaner NTop.Portable pwsh 7zip
 choco install vim vscode nvm.portable
-choco install OpenJDK 7zip
+-- choco install OpenJDK 
+choco install oraclejdk
+choco install duckdb
 
 -- choco search sqlserver-odbcdriver-18
 -- choco search ssdt17
@@ -29,3 +31,7 @@ SentinelOne pwsh 7.5 crash
 	https://github.com/PowerShell/PowerShell/issues/24435
 
 https://medium.com/@devstefancho/display-git-branch-in-your-powershell-81b8b22ae3a7
+
+
+conda install python-dotenv pyspark boto3 ipython grpcio grpcio-tools duckdb
+conda install conda-forge::delta-spark conda-forge::jupysql conda-forge::graphframes
