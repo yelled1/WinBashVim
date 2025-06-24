@@ -35,8 +35,12 @@ https://medium.com/@devstefancho/display-git-branch-in-your-powershell-81b8b22ae
 
 conda install python-dotenv pyspark boto3 ipython grpcio grpcio-tools duckdb
 conda install conda-forge::delta-spark conda-forge::jupysql conda-forge::graphframes
-conda install openpyxl sbt
+conda install openpyxl sbt jaydebeapi openpyxl 
+conda install conda-forge::anytree
+conda install conda-forge::pymssql
 
+
+sqlcmd -S VSS-SERV3\DSASQL1 -U vssdev2 -P 'vssdev2025\)' -d DATAENG -C -Q "SELECT 1;"
 
 
 dir $env:LOCALAPPDATA
